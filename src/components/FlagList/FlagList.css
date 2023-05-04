@@ -1,0 +1,16 @@
+.FlagList {
+    /* position: absolute;
+    bottom: 0; */
+    width: 100%;
+    text-align: right;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.FlagList img {
+    cursor: pointer;
+}
+
+.FlagList img:hover {
+    opacity: 0.9;
+}

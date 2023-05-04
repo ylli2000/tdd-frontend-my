@@ -1,0 +1,39 @@
+.Users {
+    padding-top: 2rem;
+}
+
+.Users .cards {
+    display: flex !important;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.Users .cards .card {
+    margin-top: 0.6rem;
+    margin-right: 1rem;
+    width: 16rem;
+}
+
+.Users .cards .card:first-child {
+    margin-top: 0.6rem;
+}
+
+.Users .cards .card .image img {
+    width: 70%;
+    margin: 0.5rem auto;
+    border-radius: 50%;
+}
+
+.Users .cards .card .content {
+    border-top: 0;
+}
+
+.Users .cards .card .header:first-letter,
+.Users .cards .card .description:first-letter {
+    text-transform: capitalize;
+}
+
+.Users .cards .card .content {
+    /* this is email */
+    text-transform: lowercase;
+}

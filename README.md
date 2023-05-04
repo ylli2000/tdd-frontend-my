@@ -1,70 +1,67 @@
-# Getting Started with Create React App
+# Coding Note
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Everything about the project code are in their notes.
 
-## Available Scripts
+Globally Search for `NOTE:` keywoard to see a list of notes. 
 
-In the project directory, you can run:
+# Generic Note
 
-### `npm start`
+## Server Setup
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+we removed dotenv `.env` and moved port settings to `package.json` to assert we don't make mistake 
+using `.env` for anything in this *front end* project.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+in `package.json` we `set PORT=9876 && react-scripts start` for the front end
 
-### `npm test`
+in `env.js` we set `SERVER_API_URL:http://localhost, SERVER_API_PORT:8080` for api calls
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+also in `package.json` we could set `"proxy": "http://localhost:8080"` for api calls (which we didn't)
 
-### `npm run build`
+Here is the explanation https://create-react-app.dev/docs/proxying-api-requests-in-development/
+## VS setup
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Prettier is used to format code on save.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+`Shift+Ctrl+P` open Settings (JSON) `settings.json` file. 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+"markdown.extension.preview.autoShowPreviewToSide": true,
+"editor.formatOnSave": true,
+"prettier.tabWidth": 4,
+"prettier.singleQuote": true,
+"workbench.tree.indent": 24,
+"workbench.tree.renderIndentGuides": "always",
+```
+These settings are to define indentation of the file, folder and code.
 
-### `npm run eject`
+Also use to display this markdown file automatically.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## ESLint React Plugin
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Install eslint either locally or globally. (Note that locally, per project, is strongly preferred)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+If you installed eslint globally, you have to install the React plugin globally too. Otherwise, install it locally (strongly preferred)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+`npm install eslint --save-dev`
 
-## Learn More
+`npm install eslint-plugin-react --save-dev`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+`npm install eslint-plugin-import --save-dev`
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+`npm install eslint-plugin-react-hooks --save-dev`
 
-### Code Splitting
+`npm install eslint-plugin-jsx-a11y --save-dev`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Take a look at `package.json` for the ESLint configs. Don't forget to restart the running server
+if you have changed the package file for the new configs to take effect.
+## Semantic UI Version 2.0.4 Fix
 
-### Analyzing the Bundle Size
+The main reason for this is an extra ";" at line 19990 of semantic.css
+If removed, everything goes fine.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```
+@font-face {
+  font-family: 'Step';
+  src: url(data:application/x-font-ttf;charset=utf-8;;base64,AAEAAAAOAIAAAw... // this line
+}
+```

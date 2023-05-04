@@ -1,0 +1,10 @@
+.PageList {
+    padding-top: 2rem;
+}
+
+.PageList .menu {
+    padding-left: 1rem;
+    padding-right: 1.5rem;
+    display: inline-flex !important;
+
+}

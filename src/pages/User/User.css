@@ -1,0 +1,33 @@
+.User {
+    padding-top: 1rem;
+}
+
+.User .info {
+    padding: 2rem 0;
+}
+
+.User .label {
+    margin: 0.5rem 1rem 1rem 0;
+}
+
+.User .grid {
+    padding-top: 2rem;
+    padding-bottom: 0rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    justify-content: right;
+}
+
+.User .grid .buttons {
+    margin: 0;
+    padding: 0;
+}
+
+.User .username:first-letter {
+    text-transform: capitalize;
+}
+
+.User .email {
+    /* this is email */
+    text-transform: lowercase;
+}

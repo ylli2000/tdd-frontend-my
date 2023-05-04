@@ -1,0 +1,9 @@
+.PageNotFound {
+    padding-top: 5rem !important;
+    width: 175px !important;
+}
+
+.PageNotFound .circular {
+    width: 175px;
+    height: 175px;
+}
